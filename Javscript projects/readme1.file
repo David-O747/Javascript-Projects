@@ -1,20 +1,21 @@
-# 💊 Medication Reminder System
+# 📝 Memory Assistant App
 
 ## What is this app?
-This app helps you remember when to take your medications. With large, easy-to-read fonts, it ensures you never forget your important health routines!
+This is a simple and user-friendly task manager to help you stay organized and remember your daily tasks! It's designed with big text, emojis, and a colorful, easy-to-read interface. You can add, check off, and track your tasks throughout the day.
 
 ## Features:
-- 🏥 Enter the name of your medication.
-- ⏰ Set the exact time you need to take it.
-- 🔔 Get a notification when it's time to take your medication.
-- 💡 Simple and easy interface for first-time users.
-  
+- 📝 Add tasks easily by typing them in the input box.
+- ✅ Check off tasks when you complete them.
+- 💡 Task list with clear visibility of completed tasks.
+- 💻 Mobile and desktop responsive.
+
 ## How to use:
-1. Type in your medication name (e.g., "Aspirin 💊").
-2. Select the time you need to take it.
-3. Hit the "Set Reminder ⏰" button to add it to your reminders.
-4. When it's time, the app will alert you! 🔔
+1. Enter a task you want to remember (e.g., "Take medication 💊").
+2. Click the "Add Task ✅" button to add it to your task list.
+3. Check off completed tasks by clicking the checkbox.
+4. Watch your progress and keep organized! 🎉
 
 ## Designed for:
-- Elderly users who need medication reminders.
-- Simple, easy-to-use design.
+- People who need a simple and colorful way to track their tasks.
+- Easy navigation and accessibility for elderly users.
+
