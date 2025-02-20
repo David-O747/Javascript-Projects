@@ -1,0 +1,20 @@
+# 💊 Medication Reminder System
+
+## What is this app?
+This app helps you remember when to take your medications. With large, easy-to-read fonts, it ensures you never forget your important health routines!
+
+## Features:
+- 🏥 Enter the name of your medication.
+- ⏰ Set the exact time you need to take it.
+- 🔔 Get a notification when it's time to take your medication.
+- 💡 Simple and easy interface for first-time users.
+  
+## How to use:
+1. Type in your medication name (e.g., "Aspirin 💊").
+2. Select the time you need to take it.
+3. Hit the "Set Reminder ⏰" button to add it to your reminders.
+4. When it's time, the app will alert you! 🔔
+
+## Designed for:
+- Elderly users who need medication reminders.
+- Simple, easy-to-use design.
