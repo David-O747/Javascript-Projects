@@ -1,0 +1,128 @@
+<!-- Memory Game -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Training Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 36px;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(4, 120px);
+            gap: 20px;
+        }
+        .card {
+            width: 120px;
+            height: 120px;
+            background-color: #90caf9;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.6s;
+        }
+        .flipped {
+            background-color: #fff;
+            transform: rotateY(180deg);
+        }
+        .matched {
+            background-color: lightgreen;
+        }
+        @media (max-width: 600px) {
+            .game-board {
+                grid-template-columns: repeat(4, 90px);
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Memory Training Game</h1>
+    <div class="game-board" id="gameBoard"></div>
+
+    <script>
+        const cards = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+        let flippedCards = [];
+        let matchedCards = [];
+
+        function shuffleCards() {
+            for (let i = cards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cards[i], cards[j]] = [cards[j], cards[i]];
+            }
+        }
+
+        function createBoard() {
+            shuffleCards();
+            const gameBoard = document.getElementById('gameBoard');
+            gameBoard.innerHTML = '';
+            cards.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.classList.add('card');
+                cardElement.setAttribute('data-index', index);
+                cardElement.onclick = flipCard;
+                gameBoard.appendChild(cardElement);
+            });
+        }
+
+        function flipCard(event) {
+            const cardElement = event.target;
+            const index = cardElement.getAttribute('data-index');
+
+            if (flippedCards.length < 2 && !cardElement.classList.contains('flipped') && !cardElement.classList.contains('matched')) {
+                cardElement.classList.add('flipped');
+                cardElement.innerText = cards[index];
+                flippedCards.push({ index, cardElement });
+
+                if (flippedCards.length === 2) {
+                    setTimeout(checkMatch, 1000);
+                }
+            }
+        }
+
+        function checkMatch() {
+            const [firstCard, secondCard] = flippedCards;
+
+            if (cards[firstCard.index] === cards[secondCard.index]) {
+                firstCard.cardElement.classList.add('matched');
+                secondCard.cardElement.classList.add('matched');
+                matchedCards.push(firstCard.index, secondCard.index);
+            } else {
+                firstCard.cardElement.classList.remove('flipped');
+                secondCard.cardElement.classList.remove('flipped');
+                firstCard.cardElement.innerText = '';
+                secondCard.cardElement.innerText = '';
+            }
+            flippedCards = [];
+
+            if (matchedCards.length === cards.length) {
+                alert("Congratulations! You've matched all the cards!");
+            }
+        }
+
+        createBoard();
+    </script>
+
+</body>
+</html>
